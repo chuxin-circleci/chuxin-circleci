@@ -16,6 +16,7 @@ jobs:
   build-job:
     docker:
       - image: huzhenghui/chuxin-generator-circleci:build-0.0.6
+    working_directory: /tmp/generated-docs
     steps:
       - run:
           name: cd /chuxin-generator && git submodule update --init
@@ -44,6 +45,7 @@ jobs:
   deploy-job:
     docker:
       - image: huzhenghui/chuxin-generator-circleci:build-0.0.6
+    working_directory: /tmp/generated-docs
     steps:
       - add_ssh_keys:
           fingerprints:
