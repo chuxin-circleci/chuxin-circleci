@@ -36,6 +36,9 @@ jobs:
           name: cd /chuxin-generator/gohugo-site && ./gohugo-generate.sh
           command: cd /chuxin-generator/gohugo-site && ./gohugo-generate.sh
       - run:
+          name: cd /chuxin-generator/gohugo-site && ./gohugo-process-stdout.sh
+          command: cd /chuxin-generator/gohugo-site && ./gohugo-process-stdout.sh
+      - run:
           name: cd /chuxin-generator/gohugo-site && hugo -DEF
           command: cd /chuxin-generator/gohugo-site && hugo -DEF
 workflows:
