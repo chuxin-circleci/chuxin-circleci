@@ -27,11 +27,11 @@ jobs:
           name: cp --recursive --dereference --verbose /chuxin-generator/content-posts/* /chuxin-generator/gohugo-site/content/posts/
           command: cp --recursive --dereference --verbose /chuxin-generator/content-posts/* /chuxin-generator/gohugo-site/content/posts/
       - run:
-          name: cd /chuxin-generator/gohugo-site && ln --symbolic --force --verbose themes/huzhenghui-universal/exampleSite/data data
-          command: cd /chuxin-generator/gohugo-site && ln --symbolic --force --verbose themes/huzhenghui-universal/exampleSite/data data
+          name: cd /chuxin-generator/gohugo-site && ln -s -f -T -v themes/huzhenghui-universal/exampleSite/data data
+          command: cd /chuxin-generator/gohugo-site && ln -s -f -T -v themes/huzhenghui-universal/exampleSite/data data
       - run:
-          name: cd /chuxin-generator/gohugo-site && ln --symbolic --force --verbose themes/huzhenghui-universal/exampleSite/static static
-          command: cd /chuxin-generator/gohugo-site && ln --symbolic --force --verbose themes/huzhenghui-universal/exampleSite/static static
+          name: cd /chuxin-generator/gohugo-site && ln -s -f -T -v themes/huzhenghui-universal/exampleSite/static static
+          command: cd /chuxin-generator/gohugo-site && ln -s -f -T -v themes/huzhenghui-universal/exampleSite/static static
       - run:
           name: cd /chuxin-generator/gohugo-site && ./gohugo-generate.sh
           command: cd /chuxin-generator/gohugo-site && ./gohugo-generate.sh
