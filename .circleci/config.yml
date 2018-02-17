@@ -13,6 +13,6 @@ jobs:
           command: date
 workflows:
   version: 2
-  info:
+  info-workflow:
     jobs:
       - info-job
