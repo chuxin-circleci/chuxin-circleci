@@ -42,8 +42,8 @@ workflows:
     jobs:
       - info-job
       - build-job:
-        requires:
-          - info-job
-        filters:
-          branches:
-            only: master
+          requires:
+            - info-job
+          filters:
+            branches:
+              only: master
