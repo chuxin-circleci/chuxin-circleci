@@ -2,7 +2,7 @@ version: 2
 jobs:
   info-job:
     docker:
-      - image: huzhenghui/chuxin-generator-circleci:build-0.0.5
+      - image: huzhenghui/chuxin-generator-circleci:build-0.0.6
     steps:
       - run:
           name: Version Summary
@@ -15,7 +15,7 @@ jobs:
           command: ls -al /chuxin-generator
   build-job:
     docker:
-      - image: huzhenghui/chuxin-generator-circleci:build-0.0.5
+      - image: huzhenghui/chuxin-generator-circleci:build-0.0.6
     steps:
       - run:
           name: cd /chuxin-generator && git submodule update --init
