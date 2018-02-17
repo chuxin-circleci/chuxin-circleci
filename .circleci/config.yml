@@ -1,6 +1,6 @@
 version: 2
 jobs:
-  build:
+  info-job:
     docker:
       - image: huzhenghui/chuxin-generator-circleci:build-0.0.5
     steps:
@@ -11,3 +11,8 @@ jobs:
       - run:
           name: Print the Current Time
           command: date
+workflows:
+  version: 2
+  info:
+    jobs:
+      - info-job
