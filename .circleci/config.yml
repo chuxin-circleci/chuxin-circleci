@@ -41,7 +41,7 @@ workflows:
   info-workflow:
     jobs:
       - info-job
-      - build -job:
+      - build-job:
         requires:
           - info-job
         filters:
