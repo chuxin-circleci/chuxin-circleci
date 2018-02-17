@@ -46,8 +46,8 @@ jobs:
       - image: huzhenghui/chuxin-generator-circleci:build-0.0.6
     steps:
       - add_ssh_keys:
-        fingerprints:
-          - "f7:96:af:f1:35:c9:03:a0:b7:1e:64:34:e0:8f:4a:31"
+          fingerprints:
+            - "f7:96:af:f1:35:c9:03:a0:b7:1e:64:34:e0:8f:4a:31"
 workflows:
   version: 2
   info-workflow:
