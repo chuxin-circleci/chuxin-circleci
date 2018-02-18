@@ -13,26 +13,13 @@ jobs:
       - run:
           name: ls -al /chuxin-generator
           command: ls -al /chuxin-generator
-  info-job:
-    docker:
-      - image: huzhenghui/chuxin-generator-circleci:build-0.0.7
-    steps:
       - run:
-          name: Version Summary
-          command: echo "Version - build-0.0.7"
-      - run:
-          name: Print the Current Time
-          command: date
-      - run:
-          name: ls -al /chuxin-generator
-          command: ls -al /chuxin-generator
+          name: cd /chuxin-generator && git pull
+          command: cd /chuxin-generator && git pull
   build-job:
     docker:
       - image: huzhenghui/chuxin-generator-circleci:build-0.0.7
     steps:
-      - run:
-          name: cd /chuxin-generator && git pull
-          command: cd /chuxin-generator && git pull
       - run:
           name: cd /chuxin-generator && git submodule update --init
           command: cd /chuxin-generator && git submodule update --init
@@ -96,20 +83,3 @@ jobs:
       - run:
           name: cd /chuxin-community.github.io && git push
           command: cd /chuxin-community.github.io && git push
-workflows:
-  version: 2
-  info-workflow:
-    jobs:
-      - info-job
-      - build-job:
-          requires:
-            - info-job
-          filters:
-            branches:
-              only: master
-      - deploy-job:
-          requires:
-            - build-job
-          filters:
-            branches:
-              only: master            
