@@ -26,8 +26,8 @@ jobs:
           name: cd /chuxin-generator && git submodule update --remote
           command: cd /chuxin-generator && git submodule update --remote
       - run:
-          name: cp --recursive --dereference --verbose /chuxin-generator/content-posts/* /chuxin-generator/gohugo-site/content/posts/
-          command: cp --recursive --dereference --verbose /chuxin-generator/content-posts/* /chuxin-generator/gohugo-site/content/posts/
+          name: cp --recursive --dereference --verbose /chuxin-generator/content-posts/* /chuxin-generator/gohugo-site/content/blog/
+          command: cp --recursive --dereference --verbose /chuxin-generator/content-posts/* /chuxin-generator/gohugo-site/content/blog/
       - run:
           name: cd /chuxin-generator/gohugo-site && ln -s -f -T -v themes/huzhenghui-universal/exampleSite/data data
           command: cd /chuxin-generator/gohugo-site && ln -s -f -T -v themes/huzhenghui-universal/exampleSite/data data
