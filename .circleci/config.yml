@@ -12,7 +12,7 @@ jobs:
           command: '[ ! -f /failed ] && date'
       - run:
           name: ls -al /chuxin-generator
-          command: ls -al /chuxin-generator
+          command: '[ ! -f /failed ] && ls -al /chuxin-generator && [ $? -ne 0 ] && touch /failed'
       - run:
           name: cd /chuxin-generator && git pull
           command: cd /chuxin-generator && git pull
