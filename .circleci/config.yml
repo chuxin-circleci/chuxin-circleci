@@ -2,11 +2,11 @@ version: 2
 jobs:
   info-job:
     docker:
-      - image: huzhenghui/chuxin-generator-circleci:build-0.0.6
+      - image: huzhenghui/chuxin-generator-circleci:build-0.0.7
     steps:
       - run:
           name: Version Summary
-          command: echo "Version - build-0.0.5"
+          command: echo "Version - build-0.0.7"
       - run:
           name: Print the Current Time
           command: date
@@ -15,7 +15,7 @@ jobs:
           command: ls -al /chuxin-generator
   build-job:
     docker:
-      - image: huzhenghui/chuxin-generator-circleci:build-0.0.6
+      - image: huzhenghui/chuxin-generator-circleci:build-0.0.7
     steps:
       - run:
           name: cd /chuxin-generator && git submodule update --init
@@ -46,7 +46,7 @@ jobs:
           paths: docs
   deploy-job:
     docker:
-      - image: huzhenghui/chuxin-generator-circleci:build-0.0.6
+      - image: huzhenghui/chuxin-generator-circleci:build-0.0.7
     steps:
       - add_ssh_keys:
           fingerprints:
