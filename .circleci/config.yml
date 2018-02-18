@@ -6,20 +6,16 @@ jobs:
     steps:
       - run:
           name: Version Summary
-          command: '[ ! -f /failed ] && echo "Version - build-0.0.7"'
+          command: echo "Version - build-0.0.7"
       - run:
           name: Print the Current Time
-          command: '[ ! -f /failed ] && date'
+          command: date
       - run:
           name: ls -al /chuxin-generator
-          command: '[ ! -f /failed ] && ls -al /chuxin-generator && [ $? -ne 0 ] && touch /failed'
+          command: ls -al /chuxin-generator
       - run:
           name: cd /chuxin-generator && git pull
           command: cd /chuxin-generator && git pull
-  build-job:
-    docker:
-      - image: huzhenghui/chuxin-generator-circleci:build-0.0.7
-    steps:
       - run:
           name: cd /chuxin-generator && git submodule update --init
           command: cd /chuxin-generator && git submodule update --init
@@ -44,27 +40,15 @@ jobs:
       - run:
           name: cd /chuxin-generator/gohugo-site && hugo -DEF
           command: cd /chuxin-generator/gohugo-site && hugo -DEF
-      - persist_to_workspace:
-          root: /chuxin-generator/public-repository/
-          paths: docs
-  deploy-job:
-    docker:
-      - image: huzhenghui/chuxin-generator-circleci:build-0.0.7
-    steps:
       - add_ssh_keys:
           fingerprints:
             - "f7:96:af:f1:35:c9:03:a0:b7:1e:64:34:e0:8f:4a:31"
-      - attach_workspace:
-          at: /tmp/workspace
-      - run:
-          name: ls -al /tmp/workspace/
-          command: ls -al /tmp/workspace/
       - run:
           name: cd / && git clone git@github.com:chuxin-community/chuxin-community.github.io
           command: cd / && git clone git@github.com:chuxin-community/chuxin-community.github.io
       - run:
-          name: cd /chuxin-community.github.io && cp --recursive --dereference --verbose /tmp/workspace/docs/* .
-          command: cd /chuxin-community.github.io && cp --recursive --dereference --verbose /tmp/workspace/docs/* .
+          name: cd /chuxin-community.github.io && cp --recursive --dereference --verbose /chuxin-generator/public-repository//docs/* .
+          command: cd /chuxin-community.github.io && cp --recursive --dereference --verbose /chuxin-generator/public-repository//docs/* .
       - run:
           name: git config --global user.email "chuxin-community.github.com@daonao.com"
           command: git config --global user.email "chuxin-community.github.com@daonao.com"
