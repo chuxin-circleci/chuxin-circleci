@@ -50,8 +50,11 @@ jobs:
           name: cd / && git clone git@github.com:chuxinshequ/chuxinshequ.github.io
           command: cd / && git clone git@github.com:chuxinshequ/chuxinshequ.github.io
       - run:
-          name: cd /chuxinshequ.github.io && cp --recursive --dereference --verbose /chuxin-generator/public-repository/docs/* .
-          command: cd /chuxinshequ.github.io && cp --recursive --dereference --verbose /chuxin-generator/public-repository/docs/* .
+          name: ls -al /chuxin-generator/gohugo-site/public
+          command: ls -al /chuxin-generator/gohugo-site/public
+      - run:
+          name: cd /chuxinshequ.github.io && cp --recursive --dereference --verbose ls -al /chuxin-generator/gohugo-site/public/* .
+          command: cd /chuxinshequ.github.io && cp --recursive --dereference --verbose ls -al /chuxin-generator/gohugo-site/public/* .
       - run:
           name: git config --global user.email "chuxin-community.github.com@daonao.com"
           command: git config --global user.email "chuxin-community.github.com@daonao.com"
