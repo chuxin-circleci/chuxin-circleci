@@ -53,8 +53,8 @@ jobs:
           name: ls -al /chuxin-generator/gohugo-site/public
           command: ls -al /chuxin-generator/gohugo-site/public
       - run:
-          name: cd /chuxinshequ.github.io && cp --recursive --dereference --verbose ls -al /chuxin-generator/gohugo-site/public/* .
-          command: cd /chuxinshequ.github.io && cp --recursive --dereference --verbose ls -al /chuxin-generator/gohugo-site/public/* .
+          name: cd /chuxinshequ.github.io && cp --recursive --dereference --verbose /chuxin-generator/gohugo-site/public/* .
+          command: cd /chuxinshequ.github.io && cp --recursive --dereference --verbose /chuxin-generator/gohugo-site/public/* .
       - run:
           name: git config --global user.email "chuxin-community.github.com@daonao.com"
           command: git config --global user.email "chuxin-community.github.com@daonao.com"
