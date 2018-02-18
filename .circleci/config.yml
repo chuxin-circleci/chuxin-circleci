@@ -72,8 +72,8 @@ jobs:
           name: cd /chuxin-community.github.io && git add .
           command: cd /chuxin-community.github.io && git add .
       - run:
-          name: cd /chuxin-community.github.io && git commit -m 'generatoed document
-          command: cd /chuxin-community.github.io && git commit -m 'generatoed document
+          name: cd /chuxin-community.github.io && git commit -m 'generatoed document'
+          command: cd /chuxin-community.github.io && git commit -m 'generatoed document'
       - run:
           name: cd /chuxin-community.github.io && ls -al .
           command: cd /chuxin-community.github.io && ls -al .
