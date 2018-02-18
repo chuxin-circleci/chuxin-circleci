@@ -45,13 +45,13 @@ jobs:
           command: cd /chuxin-generator/gohugo-site && hugo -DEF
       - add_ssh_keys:
           fingerprints:
-            - "f7:96:af:f1:35:c9:03:a0:b7:1e:64:34:e0:8f:4a:31"
+            - "74:9e:9c:5b:59:02:0d:ca:d0:bb:87:9c:02:df:e2:4f"
       - run:
-          name: cd / && git clone git@github.com:chuxin-community/chuxin-community.github.io
-          command: cd / && git clone git@github.com:chuxin-community/chuxin-community.github.io
+          name: cd / && git clone git@github.com:chuxinshequ/chuxinshequ.github.io
+          command: cd / && git clone git@github.com:chuxinshequ/chuxinshequ.github.io
       - run:
-          name: cd /chuxin-community.github.io && cp --recursive --dereference --verbose /chuxin-generator/public-repository/docs/* .
-          command: cd /chuxin-community.github.io && cp --recursive --dereference --verbose /chuxin-generator/public-repository/docs/* .
+          name: cd /chuxinshequ.github.io && cp --recursive --dereference --verbose /chuxin-generator/public-repository/docs/* .
+          command: cd /chuxinshequ.github.io && cp --recursive --dereference --verbose /chuxin-generator/public-repository/docs/* .
       - run:
           name: git config --global user.email "chuxin-community.github.com@daonao.com"
           command: git config --global user.email "chuxin-community.github.com@daonao.com"
@@ -59,17 +59,17 @@ jobs:
           name: git config --global user.name "chuxin-community"
           command: git config --global user.name "chuxin-community"
       - run:
-          name: cd /chuxin-community.github.io && touch ${CIRCLE_BUILD_NUM}
-          command: cd /chuxin-community.github.io && touch ${CIRCLE_BUILD_NUM}
+          name: cd /chuxinshequ.github.io && touch ${CIRCLE_BUILD_NUM}
+          command: cd /chuxinshequ.github.io && touch ${CIRCLE_BUILD_NUM}
       - run:
-          name: cd /chuxin-community.github.io && git add --verbose .
-          command: cd /chuxin-community.github.io && git add --verbose .
+          name: cd /chuxinshequ.github.io && git add --verbose .
+          command: cd /chuxinshequ.github.io && git add --verbose .
       - run:
-          name: cd /chuxin-community.github.io && git commit -m 'generatoed document'
-          command: cd /chuxin-community.github.io && git commit -m 'generatoed document'
+          name: cd /chuxinshequ.github.io && git commit -m 'generatoed document'
+          command: cd /chuxinshequ.github.io && git commit -m 'generatoed document'
       - run:
-          name: cd /chuxin-community.github.io && ls -al .
-          command: cd /chuxin-community.github.io && ls -al .
+          name: cd /chuxinshequ.github.io && ls -al .
+          command: cd /chuxinshequ.github.io && ls -al .
       - run:
-          name: cd /chuxin-community.github.io && git push
-          command: cd /chuxin-community.github.io && git push
+          name: cd /chuxinshequ.github.io && git push
+          command: cd /chuxinshequ.github.io && git push
