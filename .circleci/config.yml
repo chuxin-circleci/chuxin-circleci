@@ -9,7 +9,7 @@ jobs:
           command: '[ ! -f /failed ] && echo "Version - build-0.0.7"'
       - run:
           name: Print the Current Time
-          command: date
+          command: '[ ! -f /failed ] && date'
       - run:
           name: ls -al /chuxin-generator
           command: ls -al /chuxin-generator
