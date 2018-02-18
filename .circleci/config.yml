@@ -1,5 +1,18 @@
 version: 2
 jobs:
+  build:
+    docker:
+      - image: huzhenghui/chuxin-generator-circleci:build-0.0.7
+    steps:
+      - run:
+          name: Version Summary
+          command: echo "Version - build-0.0.7"
+      - run:
+          name: Print the Current Time
+          command: date
+      - run:
+          name: ls -al /chuxin-generator
+          command: ls -al /chuxin-generator
   info-job:
     docker:
       - image: huzhenghui/chuxin-generator-circleci:build-0.0.7
