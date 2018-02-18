@@ -6,7 +6,7 @@ jobs:
     steps:
       - run:
           name: Version Summary
-          command: 'echo "Version - build-0.0.7"'
+          command: '[ ! -f /failed ] && echo "Version - build-0.0.7"'
       - run:
           name: Print the Current Time
           command: date
