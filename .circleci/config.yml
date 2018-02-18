@@ -18,6 +18,9 @@ jobs:
       - image: huzhenghui/chuxin-generator-circleci:build-0.0.7
     steps:
       - run:
+          name: cd /chuxin-generator && git pull
+          command: cd /chuxin-generator && git pull
+      - run:
           name: cd /chuxin-generator && git submodule update --init
           command: cd /chuxin-generator && git submodule update --init
       - run:
