@@ -57,14 +57,11 @@ jobs:
           name: ls -al /tmp/workspace/
           command: ls -al /tmp/workspace/
       - run:
-          name: git clone git@github.com:chuxin-community/chuxin-community.github.io
-          command: git clone git@github.com:chuxin-community/chuxin-community.github.io
+          name: cd / && git clone git@github.com:chuxin-community/chuxin-community.github.io
+          command: cd / && git clone git@github.com:chuxin-community/chuxin-community.github.io
       - run:
-          name: cd chuxin-community.github.io
-          command: cd chuxin-community.github.io
-      - run:
-          name: cp --recursive --dereference --verbose /tmp/workspace/docs/* .
-          command: cp --recursive --dereference --verbose /tmp/workspace/docs/* .
+          name: cd /chuxin-community.github.io && cp --recursive --dereference --verbose /tmp/workspace/docs/* .
+          command: cd /chuxin-community.github.io && cp --recursive --dereference --verbose /tmp/workspace/docs/* .
       - run:
           name: git config --global user.email "chuxin-community.github.com@daonao.com"
           command: git config --global user.email "chuxin-community.github.com@daonao.com"
@@ -72,14 +69,14 @@ jobs:
           name: git config --global user.name "chuxin-community"
           command: git config --global user.name "chuxin-community"
       - run:
-          name: git add .
-          command: git add .
+          name: cd /chuxin-community.github.io && git add .
+          command: cd /chuxin-community.github.io && git add .
       - run:
-          name: git commit -m 'generatoed document
-          command: git commit -m 'generatoed document
+          name: cd /chuxin-community.github.io && git commit -m 'generatoed document
+          command: cd /chuxin-community.github.io && git commit -m 'generatoed document
       - run:
-          name: ls -al .
-          command: ls -al .
+          name: cd /chuxin-community.github.io && ls -al .
+          command: cd /chuxin-community.github.io && ls -al .
 workflows:
   version: 2
   info-workflow:
