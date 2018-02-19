@@ -5,77 +5,77 @@ jobs:
       - image: huzhenghui/chuxin-generator-circleci:build-0.0.13
     steps:
       - run:
-          name: Stage 1 Step 1 : Version Summary
+          name: Stage 1 Step 1 - Version Summary
           command: echo "Version - build-0.0.13"
       - run:
-          name: Stage 1 Step 2 : CIRCLE_BUILD_NUM
+          name: Stage 1 Step 2 - CIRCLE_BUILD_NUM
           command: echo ${CIRCLE_BUILD_NUM}
       - run:
-          name: Stage 1 Step 3 : Print the Current Time
+          name: Stage 1 Step 3 - Print the Current Time
           command: date
       - run:
-          name: Stage 2 Step 1 : ls -al /chuxin-generator
+          name: Stage 2 Step 1 - ls -al /chuxin-generator
           command: ls -al /chuxin-generator
       - run:
-          name: Stage 2 Step 2 : cd /chuxin-generator && git pull
+          name: Stage 2 Step 2 - cd /chuxin-generator && git pull
           command: cd /chuxin-generator && git pull
       - run:
-          name: Stage 2 Step 3 : cd /chuxin-generator && git submodule update --init
+          name: Stage 2 Step 3 - cd /chuxin-generator && git submodule update --init
           command: cd /chuxin-generator && git submodule update --init
       - run:
-          name: Stage 2 Step 4 : cd /chuxin-generator && git submodule update --remote
+          name: Stage 2 Step 4 - cd /chuxin-generator && git submodule update --remote
           command: cd /chuxin-generator && git submodule update --remote
       - run:
-          name: Stage 3 Step 1 : cp --recursive --dereference --verbose /chuxin-generator/content-posts/* /chuxin-generator/gohugo-site/content/blog/
+          name: Stage 3 Step 1 - cp --recursive --dereference --verbose /chuxin-generator/content-posts/* /chuxin-generator/gohugo-site/content/blog/
           command: cp --recursive --dereference --verbose /chuxin-generator/content-posts/* /chuxin-generator/gohugo-site/content/blog/
       - run:
-          name: Stage 3 Step 2 : cd /chuxin-generator/gohugo-site && ln -s -f -T -v themes/huzhenghui-universal/exampleSite/data data
+          name: Stage 3 Step 2 - cd /chuxin-generator/gohugo-site && ln -s -f -T -v themes/huzhenghui-universal/exampleSite/data data
           command: cd /chuxin-generator/gohugo-site && ln -s -f -T -v themes/huzhenghui-universal/exampleSite/data data
       - run:
-          name: Stage 3 Step 3 : cd /chuxin-generator/gohugo-site && ln -s -f -T -v themes/huzhenghui-universal/exampleSite/static static
+          name: Stage 3 Step 3 - cd /chuxin-generator/gohugo-site && ln -s -f -T -v themes/huzhenghui-universal/exampleSite/static static
           command: cd /chuxin-generator/gohugo-site && ln -s -f -T -v themes/huzhenghui-universal/exampleSite/static static
       - run:
-          name: Stage 4 Step 1 : ls -al /chuxin-script
+          name: Stage 4 Step 1 - ls -al /chuxin-script
           command: ls -al /chuxin-script
       - run:
-          name: Stage 4 Step 2 : cd /chuxin-generator/gohugo-site && /chuxin-script/gohugo-process-stderr.sh
+          name: Stage 4 Step 2 - cd /chuxin-generator/gohugo-site && /chuxin-script/gohugo-process-stderr.sh
           command: cd /chuxin-generator/gohugo-site && /chuxin-script/gohugo-process-stderr.sh
       - run:
-          name: Stage 4 Step 3 : cd /chuxin-generator/gohugo-site && /chuxin-script/gohugo-process-stdout.sh
+          name: Stage 4 Step 3 - cd /chuxin-generator/gohugo-site && /chuxin-script/gohugo-process-stdout.sh
           command: cd /chuxin-generator/gohugo-site && /chuxin-script/gohugo-process-stdout.sh
       - run:
-          name: Stage 4 Step 4 : cd /chuxin-generator/gohugo-site && hugo -DEF
+          name: Stage 4 Step 4 - cd /chuxin-generator/gohugo-site && hugo -DEF
           command: cd /chuxin-generator/gohugo-site && hugo -DEF
       - add_ssh_keys:
           fingerprints:
             - "74:9e:9c:5b:59:02:0d:ca:d0:bb:87:9c:02:df:e2:4f"
       - run:
-          name: Stage 5 Step 1 : cd / && git clone git@github.com:chuxinshequ/chuxinshequ.github.io
+          name: Stage 5 Step 1 - cd / && git clone git@github.com:chuxinshequ/chuxinshequ.github.io
           command: cd / && git clone git@github.com:chuxinshequ/chuxinshequ.github.io
       - run:
-          name: Stage 5 Step 2 : ls -al /chuxin-generator/gohugo-site/public
+          name: Stage 5 Step 2 - ls -al /chuxin-generator/gohugo-site/public
           command: ls -al /chuxin-generator/gohugo-site/public
       - run:
-          name: Stage 5 Step 3 : cd /chuxinshequ.github.io && cp --recursive --dereference --verbose /chuxin-generator/gohugo-site/public/* .
+          name: Stage 5 Step 3 - cd /chuxinshequ.github.io && cp --recursive --dereference --verbose /chuxin-generator/gohugo-site/public/* .
           command: cd /chuxinshequ.github.io && cp --recursive --dereference --verbose /chuxin-generator/gohugo-site/public/* .
       - run:
-          name: Stage 5 Step 4 : cd /chuxinshequ.github.io && touch ${CIRCLE_BUILD_NUM}
+          name: Stage 5 Step 4 - cd /chuxinshequ.github.io && touch ${CIRCLE_BUILD_NUM}
           command: cd /chuxinshequ.github.io && touch ${CIRCLE_BUILD_NUM}
       - run:
-          name: Stage 5 Step 5 : cd /chuxinshequ.github.io && ls -al .
+          name: Stage 5 Step 5 - cd /chuxinshequ.github.io && ls -al .
           command: cd /chuxinshequ.github.io && ls -al .
       - run:
-          name: Stage 6 Step 1 : git config --global user.email "chuxin-community.github.com@daonao.com"
+          name: Stage 6 Step 1 - git config --global user.email "chuxin-community.github.com@daonao.com"
           command: git config --global user.email "chuxin-community.github.com@daonao.com"
       - run:
-          name: Stage 6 Step 2 : git config --global user.name "chuxin-community"
+          name: Stage 6 Step 2 - git config --global user.name "chuxin-community"
           command: git config --global user.name "chuxin-community"
       - run:
-          name: Stage 6 Step 3 : cd /chuxinshequ.github.io && git add --verbose .
+          name: Stage 6 Step 3 - cd /chuxinshequ.github.io && git add --verbose .
           command: cd /chuxinshequ.github.io && git add --verbose .
       - run:
-          name: Stage 6 Step 4 : cd /chuxinshequ.github.io && git commit -m 'generatoed document'
+          name: Stage 6 Step 4 - cd /chuxinshequ.github.io && git commit -m 'generatoed document'
           command: cd /chuxinshequ.github.io && git commit -m 'generatoed document'
       - run:
-          name: Stage 6 Step 5 : cd /chuxinshequ.github.io && git push
+          name: Stage 6 Step 5 - cd /chuxinshequ.github.io && git push
           command: cd /chuxinshequ.github.io && git push
