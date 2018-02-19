@@ -38,6 +38,9 @@ jobs:
           name: ls -al /chuxin-script
           command: ls -al /chuxin-script
       - run:
+          name: cd /chuxin-generator/gohugo-site && /chuxin-script/gohugo-process-stderr.sh
+          command: cd /chuxin-generator/gohugo-site && /chuxin-script/gohugo-process-stderr.sh
+      - run:
           name: cd /chuxin-generator/gohugo-site && ./gohugo-generate.sh
           command: cd /chuxin-generator/gohugo-site && ./gohugo-generate.sh
       - run:
