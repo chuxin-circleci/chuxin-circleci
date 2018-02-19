@@ -2,11 +2,11 @@ version: 2
 jobs:
   build:
     docker:
-      - image: huzhenghui/chuxin-generator-circleci:build-0.0.9
+      - image: huzhenghui/chuxin-generator-circleci:build-0.0.10
     steps:
       - run:
           name: Version Summary
-          command: echo "Version - build-0.0.9"
+          command: echo "Version - build-0.0.10"
       - run:
           name: CIRCLE_BUILD_NUM
           command: echo ${CIRCLE_BUILD_NUM}
@@ -34,6 +34,9 @@ jobs:
       - run:
           name: cd /chuxin-generator/gohugo-site && ln -s -f -T -v themes/huzhenghui-universal/exampleSite/static static
           command: cd /chuxin-generator/gohugo-site && ln -s -f -T -v themes/huzhenghui-universal/exampleSite/static static
+      - run:
+          name: ls -al /chuxin-script
+          command: ls -al /chuxin-script
       - run:
           name: cd /chuxin-generator/gohugo-site && ./gohugo-generate.sh
           command: cd /chuxin-generator/gohugo-site && ./gohugo-generate.sh
