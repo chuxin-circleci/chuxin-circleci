@@ -74,8 +74,8 @@ jobs:
           name: Stage 6 Step 3 - cd /chuxinshequ.github.io && git add --verbose .
           command: cd /chuxinshequ.github.io && git add --verbose .
       - run:
-          name: Stage 6 Step 4 - cd /chuxinshequ.github.io && git commit -m 'generatoed document'
-          command: cd /chuxinshequ.github.io && git commit -m 'generated document ${CIRCLE_BUILD_NUM}'
+          name: Stage 6 Step 4 - cd /chuxinshequ.github.io && git commit -m "generated document CIRCLE_BUILD_NUM = ${CIRCLE_BUILD_NUM}"
+          command: cd /chuxinshequ.github.io && git commit -m "generated document CIRCLE_BUILD_NUM = ${CIRCLE_BUILD_NUM}"
       - run:
           name: Stage 6 Step 5 - cd /chuxinshequ.github.io && git push
           command: cd /chuxinshequ.github.io && git push
